@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'daspi.views.home', name='home'),
     url(r'^login/$', 'daspi.apps.checkins.views.login', name='login'),
-    url(r'^api/', include('api.urls')),
+    url(r'^api/', include('daspi.apps.api.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 )

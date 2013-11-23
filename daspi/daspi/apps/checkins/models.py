@@ -1,3 +1,6 @@
+import hashlib
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -12,6 +15,20 @@ class ApplePiUser(models.Model):
     parent = models.ForeignKey('self', null=True)
     role = models.PositiveSmallIntegerField(choices=USER_TYPES)
     checkins_count = models.PositiveIntegerField(default=0)
+
+    def generate_token(self):
+        m = hashlib.md5()
+        m.update(self.user.username)
+        m.update(str(datetime.datetime.now()))
+
+        token = m.hexdigest()
+
+        ut = UserTokens()
+        ut.user = self.user
+        ut.value = token
+        ut.save()
+
+        return token
 
 class UserTokens(models.Model):
     user = models.ForeignKey(User)
