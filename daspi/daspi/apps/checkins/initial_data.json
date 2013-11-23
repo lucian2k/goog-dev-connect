@@ -107,6 +107,36 @@
   },
   {
     "model": "checkins.checkin",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "place": 1,
+      "starttime": "2013-11-21T10:52:05.717Z",
+      "endtime": "2013-11-21T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "place": 1,
+      "starttime": "2013-11-20T10:52:05.717Z",
+      "endtime": "2013-11-20T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "place": 1,
+      "starttime": "2013-11-22T10:52:05.717Z",
+      "endtime": "2013-11-22T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
     "pk": 2,
     "fields": {
       "user": 1,
