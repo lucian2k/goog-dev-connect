@@ -38,6 +38,9 @@ class ApplePiUser(models.Model):
     def can_report(self):
         return self.role in USER_TYPE_REPORTS
 
+    def __unicode__(self):
+        return u'%s (parent: %s, role: %s)' % (self.user, self.parent, self.role)
+
 class UserTokens(models.Model):
     user = models.ForeignKey(User)
     value = models.CharField(max_length=32)
