@@ -31,6 +31,7 @@ class Place(models.Model):
 # Define the checkin model
 class Checkin(models.Model):
     user = models.ForeignKey(User)
+    place = models.ForeignKey(Place)
     starttime = models.DateTimeField(auto_now_add=True)
     endtime = models.DateTimeField(null=True)
     # add maybe mood or other stuff here
