@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.contrib.auth import authenticate, login
-from daspi.apps.checkins.models import Place
+
+from daspi.apps.checkins.models import Place, ApplePiUser, Checkin
 
 def home(request):
     """Login and/or eventual redirect"""
@@ -29,9 +30,22 @@ def dologin(request):
 def reports(request):
     """The reporting module - see where your bastard is"""
 
-    return
+    if not request.user.is_authenticated(): return redirect('home')
+
+    # get the status of all the people being followed
+    stalking = ApplePiUser.objects.filter(parent=request.user.pk)
+    checkins = Checkin.objects.filter(user__in=stalking).order_by('-endtime', '-endtime')
+
+    return render(request,
+                    'reports.html',
+                    {'location': _get_location(),
+                    'checkins': checkins,
+                    'checkins_count': len(checkins)})
 
 def _get_location():
     """Small info about the current location"""
 
     return Place.objects.get(pk=settings.THIS_PLACE_PK)
+
+def dologout(request):
+    logout(request)
