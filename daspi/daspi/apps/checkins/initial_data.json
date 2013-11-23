@@ -4,7 +4,7 @@
       "model": "auth.user",
       "fields": {
           "username": "lucian",
-          "first_name": "",
+          "first_name": "JohnTheAdolescent",
           "last_name": "",
           "is_active": true,
           "is_superuser": true,
@@ -22,7 +22,7 @@
       "model": "auth.user",
       "fields": {
           "username": "lucian2",
-          "first_name": "",
+          "first_name": "JaneCollege",
           "last_name": "",
           "is_active": true,
           "is_superuser": false,
@@ -40,7 +40,7 @@
       "model": "auth.user",
       "fields": {
           "username": "supervisor",
-          "first_name": "",
+          "first_name": "TheDad",
           "last_name": "",
           "is_active": true,
           "is_superuser": false,
@@ -84,7 +84,10 @@
     "pk": 1,
     "fields": {
       "place_type": 1,
-      "place_name": "Bucharest Fancy High School"
+      "place_name": "Bucharest Fancy High School",
+      "lat": 44.432167,
+      "lng": 26.103971,
+      "pic": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gheorghe_Lazar_-_High_School.JPG/300px-Gheorghe_Lazar_-_High_School.JPG"
     }
   },
   {
@@ -92,7 +95,10 @@
     "pk": 2,
     "fields": {
       "place_type": 1,
-      "place_name": "GooglePlex High School"
+      "place_name": "GooglePlex High School",
+      "lat": 44.435247,
+      "lng": 26.088586,
+      "pic": "http://upload.wikimedia.org/wikipedia/en/b/bb/Vianu.PNG"
     }
   },
   {
@@ -103,6 +109,36 @@
       "place": 1,
       "starttime": "2013-11-23T10:52:05.717Z",
       "endtime": "2013-11-23T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "place": 1,
+      "starttime": "2013-11-21T10:52:05.717Z",
+      "endtime": "2013-11-21T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "place": 1,
+      "starttime": "2013-11-20T10:52:05.717Z",
+      "endtime": "2013-11-20T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "place": 1,
+      "starttime": "2013-11-22T10:52:05.717Z",
+      "endtime": "2013-11-22T18:52:05.717Z"
     }
   },
   {
