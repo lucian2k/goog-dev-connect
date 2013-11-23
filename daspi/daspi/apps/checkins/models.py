@@ -82,7 +82,8 @@ class Checkin(models.Model):
         return not self.endtime # todo: add time limit when the session is considered done
 
     def checkin_duration(self):
-        time_since_checkin = datetime.datetime.utcnow().replace(tzinfo=utc) - self.starttime
+        if self.endtime: time_since_checkin = self.endtime - self.starttime
+        else: time_since_checkin = datetime.datetime.utcnow().replace(tzinfo=utc) - self.starttime
 
         return str(time_since_checkin)
 

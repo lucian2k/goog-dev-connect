@@ -37,7 +37,7 @@
               {% if checkin.stillthere %}
               {{ checkin.user.first_name }} is at {{ checkin.place }} <span class="label label-primary">been here for {{ checkin.checkin_duration }}, checked in {{ checkin.starttime|timesince }} ago</span>
               {% else %}
-              {{ checkin.user.first_name }} was at {{ checkin.place }} <span class="label label-default">{{ checkin.checkin_duration }}, checked out {{ checkin.endtime|timesince }} ago</span>
+              {{ checkin.user.first_name }} was at {{ checkin.place }} <span class="label label-default">spent {{ checkin.checkin_duration }}, checked out {{ checkin.endtime|timesince }} ago</span>
               {% endif %}
               </td>
             </tr>
