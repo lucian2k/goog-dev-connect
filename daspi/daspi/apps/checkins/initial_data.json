@@ -1,0 +1,117 @@
+[
+  {
+      "pk": 1,
+      "model": "auth.user",
+      "fields": {
+          "username": "lucian",
+          "first_name": "",
+          "last_name": "",
+          "is_active": true,
+          "is_superuser": true,
+          "is_staff": true,
+          "last_login": "2013-11-23T10:52:05.717Z",
+          "groups": [],
+          "user_permissions": [],
+          "password": "pbkdf2_sha256$12000$Q8Hriq0mXC21$XkoYb0n25GEVqulprhP3944vSKUg8p7AmcTe4QzDpYM=",
+          "email": "lucian@mashups.ro",
+          "date_joined": "2013-11-23T10:52:05.717Z"
+      }
+  },
+  {
+      "pk": 2,
+      "model": "auth.user",
+      "fields": {
+          "username": "lucian2",
+          "first_name": "",
+          "last_name": "",
+          "is_active": true,
+          "is_superuser": false,
+          "is_staff": true,
+          "last_login": "2013-11-23T10:52:05.717Z",
+          "groups": [],
+          "user_permissions": [],
+          "password": "pbkdf2_sha256$12000$Q8Hriq0mXC21$XkoYb0n25GEVqulprhP3944vSKUg8p7AmcTe4QzDpYM=",
+          "email": "l.ucian@mashups.ro",
+          "date_joined": "2013-11-23T10:52:05.717Z"
+      }
+  },
+  {
+      "pk": 3,
+      "model": "auth.user",
+      "fields": {
+          "username": "supervisor",
+          "first_name": "",
+          "last_name": "",
+          "is_active": true,
+          "is_superuser": false,
+          "is_staff": true,
+          "last_login": "2013-11-23T10:52:05.717Z",
+          "groups": [],
+          "user_permissions": [],
+          "password": "pbkdf2_sha256$12000$Q8Hriq0mXC21$XkoYb0n25GEVqulprhP3944vSKUg8p7AmcTe4QzDpYM=",
+          "email": "luc.ian@mashups.ro",
+          "date_joined": "2013-11-23T10:52:05.717Z"
+      }
+  },
+  {
+    "model": "checkins.applepiuser",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "role": 2
+    }
+  },
+  {
+    "model": "checkins.applepiuser",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "role": 1,
+      "parent": 3
+    }
+  },
+  {
+    "model": "checkins.applepiuser",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "role": 1,
+      "parent": 3
+    }
+  },
+  {
+    "model": "checkins.place",
+    "pk": 1,
+    "fields": {
+      "place_type": 1,
+      "place_name": "Bucharest Fancy High School"
+    }
+  },
+  {
+    "model": "checkins.place",
+    "pk": 2,
+    "fields": {
+      "place_type": 1,
+      "place_name": "GooglePlex High School"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "place": 1,
+      "starttime": "2013-11-23T10:52:05.717Z",
+      "endtime": "2013-11-23T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "place": 2,
+      "starttime": "2013-11-23T19:00:05.717Z"
+    }
+  }
+]
