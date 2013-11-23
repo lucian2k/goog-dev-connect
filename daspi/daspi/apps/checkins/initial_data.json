@@ -149,5 +149,13 @@
       "place": 2,
       "starttime": "2013-11-23T19:00:05.717Z"
     }
+  },
+  {
+    "model": "checkins.usertokens",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "value": "asd123"
+    }
   }
 ]
