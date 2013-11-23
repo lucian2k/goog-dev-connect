@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from daspi.apps.checkins.models import Place, ApplePiUser, Checkin
 
@@ -34,7 +34,7 @@ def reports(request):
 
     # get the status of all the people being followed
     stalking = ApplePiUser.objects.filter(parent=request.user.pk)
-    checkins = Checkin.objects.filter(user__in=stalking).order_by('-endtime', '-endtime')
+    checkins = Checkin.objects.filter(user__in=stalking).order_by('-starttime', '-endtime')
 
     return render(request,
                     'reports.html',
@@ -49,3 +49,4 @@ def _get_location():
 
 def dologout(request):
     logout(request)
+    return redirect('home')
