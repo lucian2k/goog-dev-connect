@@ -9,6 +9,7 @@ USER_TYPES = (
 )
 class ApplePiUser(models.Model):
     user = models.OneToOneField(User)
+    parent = models.ForeignKey('self', null=True)
     role = models.PositiveSmallIntegerField(choices=USER_TYPES)
     checkins_count = models.PositiveIntegerField(default=0)
 
