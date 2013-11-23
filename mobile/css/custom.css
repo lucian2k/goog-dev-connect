@@ -10,3 +10,6 @@
 .error {
     color: red;
 }
+#map {
+    height: 200px;
+}
