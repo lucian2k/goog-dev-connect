@@ -4,7 +4,7 @@
       "model": "auth.user",
       "fields": {
           "username": "lucian",
-          "first_name": "",
+          "first_name": "JohnTheAdolescent",
           "last_name": "",
           "is_active": true,
           "is_superuser": true,
@@ -22,7 +22,7 @@
       "model": "auth.user",
       "fields": {
           "username": "lucian2",
-          "first_name": "",
+          "first_name": "JaneCollege",
           "last_name": "",
           "is_active": true,
           "is_superuser": false,
@@ -40,7 +40,7 @@
       "model": "auth.user",
       "fields": {
           "username": "supervisor",
-          "first_name": "",
+          "first_name": "TheDad",
           "last_name": "",
           "is_active": true,
           "is_superuser": false,
