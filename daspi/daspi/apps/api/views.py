@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
-from daspi.apps.checkins.models import Place
+from daspi.apps.checkins.models import Place, UserTokens, Checkin
 from decorators import json_response
 from django.conf import settings
 
@@ -25,3 +25,21 @@ def dologin(request):
 @json_response
 def location(request):
     return Place.objects.get(pk=settings.THIS_PLACE_PK).to_json()
+
+@json_response
+def checkin(request):
+    token = request.GET.get('token', None)
+    # token = request.POST.get('token', None)
+
+    try: token_obj = UserTokens.objects.get(value=token)
+    except: token_obj = None
+
+    if not token_obj: return {'error': 'Invalid token', 'success': False}
+
+    # find the user and register the checkin
+    place_obj   = Place.objects.get(pk=settings.THIS_PLACE_PK)
+    checkin_obj = Checkin(user=token_obj.user,
+                            place=place_obj)
+    checkin_obj.save()
+
+    return {'success': True}

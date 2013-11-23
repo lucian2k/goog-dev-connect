@@ -43,7 +43,7 @@ class ApplePiUser(models.Model):
 
 class UserTokens(models.Model):
     user = models.ForeignKey(User)
-    value = models.CharField(max_length=32)
+    value = models.CharField(max_length=32, unique=True)
 
 # Define place types (school, parc, etc) - defined for each instance in
 # the app's settings
