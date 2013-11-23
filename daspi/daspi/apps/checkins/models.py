@@ -10,7 +10,11 @@ USER_TYPES = (
 class ApplePiUser(models.Model):
     user = models.OneToOneField(User)
     role = models.PositiveSmallIntegerField(choices=USER_TYPES)
-    checkins_count = models.PositiveIntegerField(defaul=0)
+    checkins_count = models.PositiveIntegerField(default=0)
+
+class UserTokens(models.Model):
+    user = models.ForeignKey(User)
+    value = models.CharField(max_length=32)
 
 # Define place types (school, parc, etc) - defined for each instance in
 # the app's settings
@@ -21,6 +25,7 @@ PLACE_TYPE_CHOICES = (
 )
 class Place(models.Model):
     place_type = models.PositiveSmallIntegerField(choices=PLACE_TYPE_CHOICES)
+    place_name = models.CharField(max_length=100)
     # Add support for geo fields (spatialite and all)
 
 # Define the checkin model
