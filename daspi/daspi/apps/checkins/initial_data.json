@@ -36,7 +36,7 @@
       }
   },
   {
-      "pk": 2,
+      "pk": 3,
       "model": "auth.user",
       "fields": {
           "username": "supervisor",
@@ -55,18 +55,28 @@
   },
   {
     "model": "checkins.applepiuser",
-    "pk": 1,
+    "pk": 3,
     "fields": {
-      "user": 1,
-      "role": 1
+      "user": 3,
+      "role": 2
     }
   },
   {
     "model": "checkins.applepiuser",
     "pk": 1,
     "fields": {
+      "user": 1,
+      "role": 1,
+      "parent": 3
+    }
+  },
+  {
+    "model": "checkins.applepiuser",
+    "pk": 2,
+    "fields": {
       "user": 2,
-      "role": 2
+      "role": 1,
+      "parent": 3
     }
   },
   {
