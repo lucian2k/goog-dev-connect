@@ -1,7 +1,14 @@
+'use strict';
+
 angular.module('controllers', []);
 angular.module('services', []);
+angular.module('directives', []);
 
-angular.module('apple-pi', ['ionic', 'controllers', 'services'])
+angular.module('apple-pi', ['ionic', 'controllers', 'services', 'directives'])
+.config(function ($compileProvider){
+    // Needed for phonegap routing
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
 .config(function ($routeProvider) {
     $routeProvider
         .when('/', {

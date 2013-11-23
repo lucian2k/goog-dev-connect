@@ -7,12 +7,8 @@
     </header>
     <div class="content has-header padding">
       <div class="card">
-        <div class="item item-icon-right">
-          You're at {{location.name}} <i class="icon ion-ios7-close-empty"></i>
-        </div>
-        <div class="item item-icon-right">
-          Last check in here 2 days ago <i class="icon ion-ios7-close-empty"></i>
-        </div>
+        <notification message="You're at {{location.name}}"></notification>
+        <notification message="Last check in here 2 days ago"></notification>
       </div>
       <div class="list card">
         <a href="#/location" class="item item-icon-left positive">
