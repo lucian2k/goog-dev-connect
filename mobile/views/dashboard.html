@@ -1,0 +1,58 @@
+<side-menus>
+  <pane side-menu-content>
+    <header class="bar bar-header bar-positive">
+      <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon"></i></button>
+      <h1 class="title">{{location.name}}</h1>
+    </header>
+    <div class="content has-header padding">
+      <div class="card">
+        <div class="item item-text-wrap">
+          <h3>Hi, {{user.fn}}. It's your first time here, check some popular tips.</h3>
+        </div>
+      </div>
+
+      <div class="list card">
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-home"></i>
+          About location
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-ios7-telephone"></i>
+          Your places
+        </a>
+      </div>
+
+      <div class="card padding">
+        <button class="button button-block button-balanced">Check in</button>
+      </div>
+    </div>
+  </pane>
+  <side-menu side="left">
+    <header class="bar bar-header bar-dark">
+      <h1 class="title">Settings</h1>
+    </header>
+    <content has-header="true">
+      <ul class="list">
+        <a href="#/profile" class="item">
+          Edit profile
+        </a>
+        <a ng-click="logOut()" class="item">
+          Log Out
+        </a>
+      </ul>
+    </content>
+  </side-menu>
+  <side-menu side="right">
+    <header class="bar bar-header bar-dark">
+      <h1 class="title">Right</h1>
+    </header>
+    <content has-header="true">
+      <ul class="list">
+        <a href="#" class="item" ng-repeat="item in list">
+          {{item.text}}
+        </a>
+      </ul>
+    </content>
+  </side-menu>
+</side-menus>
