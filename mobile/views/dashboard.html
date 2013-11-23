@@ -3,28 +3,26 @@
     <header class="bar bar-header bar-positive">
       <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon"></i></button>
       <h1 class="title">{{location.name}}</h1>
+      <button class="button button-icon" ng-click="openRight()"><i class="icon icon ion-ios7-people"></i></button>
     </header>
     <div class="content has-header padding">
       <div class="card">
-        <div class="item item-text-wrap">
-          <h3>Hi, {{user.fn}}. It's your first time here, check some popular tips.</h3>
-        </div>
       </div>
-
       <div class="list card">
         <a href="#" class="item item-icon-left">
-          <i class="icon ion-home"></i>
-          About location
-        </a>
-
-        <a href="#" class="item item-icon-left">
-          <i class="icon ion-ios7-telephone"></i>
+          <i class="icon ion-location"></i>
           Your places
         </a>
+
+        <a href="#/location" class="item item-icon-left">
+          <i class="icon ion-information"></i>
+          Learn more about {{location.name}}
+        </a>
+
       </div>
 
       <div class="card padding">
-        <button class="button button-block button-balanced">Check in</button>
+        <button class="button button-block button-balanced"><i class="icon ion-navigate"></i> &nbsp;&nbsp;Check in</button>
       </div>
     </div>
   </pane>
@@ -34,23 +32,26 @@
     </header>
     <content has-header="true">
       <ul class="list">
+        <a href="#/friend/add" class="item">
+          <i class="icon ion-person-add"></i> &nbsp;&nbsp;Add friend
+        </a>
         <a href="#/profile" class="item">
-          Edit profile
+          <i class="icon ion-person"></i> &nbsp;&nbsp;Edit profile
         </a>
         <a ng-click="logOut()" class="item">
-          Log Out
+          <i class="icon ion-power"></i> &nbsp;&nbsp;Log Out
         </a>
       </ul>
     </content>
   </side-menu>
   <side-menu side="right">
     <header class="bar bar-header bar-dark">
-      <h1 class="title">Right</h1>
+      <h1 class="title">Friends</h1>
     </header>
     <content has-header="true">
       <ul class="list">
-        <a href="#" class="item" ng-repeat="item in list">
-          {{item.text}}
+        <a class="item" ng-repeat="friend in friends">
+          <i class="icon ion-ios7-circle-filled" ng-class="{online: friend.active === 1, offline: friend.active === 0}"></i> {{friend.fn}} {{friend.ln}}
         </a>
       </ul>
     </content>
