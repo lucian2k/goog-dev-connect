@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
+from daspi.apps.checkins.models import Place
 from decorators import json_response
+from django.conf import settings
 
 @json_response
 def dologin(request):
@@ -19,3 +21,7 @@ def dologin(request):
             if not token: token = user.applepiuser.generate_token()
 
     return {'token': token}
+
+@json_response
+def location(request):
+    return Place.objects.get(pk=settings.THIS_PLACE_PK).to_json()

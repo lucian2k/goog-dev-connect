@@ -84,7 +84,10 @@
     "pk": 1,
     "fields": {
       "place_type": 1,
-      "place_name": "Bucharest Fancy High School"
+      "place_name": "Bucharest Fancy High School",
+      "lat": 44.432167,
+      "lng": 26.103971,
+      "pic": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gheorghe_Lazar_-_High_School.JPG/300px-Gheorghe_Lazar_-_High_School.JPG"
     }
   },
   {
@@ -92,7 +95,10 @@
     "pk": 2,
     "fields": {
       "place_type": 1,
-      "place_name": "GooglePlex High School"
+      "place_name": "GooglePlex High School",
+      "lat": 44.435247,
+      "lng": 26.088586,
+      "pic": "http://upload.wikimedia.org/wikipedia/en/b/bb/Vianu.PNG"
     }
   },
   {

@@ -55,10 +55,19 @@ PLACE_TYPE_CHOICES = (
 class Place(models.Model):
     place_type = models.PositiveSmallIntegerField(choices=PLACE_TYPE_CHOICES)
     place_name = models.CharField(max_length=100)
+    lat        = models.FloatField(null=True)
+    lng        = models.FloatField(null=True)
+    pic        = models.URLField(null=True)
     # Add support for geo fields (spatialite and all)
 
     def __unicode__(self):
         return u'%s' % self.place_name
+
+    def to_json(self):
+        return {'name': self.place_name,
+                'lat': self.lat,
+                'lng': self.lng,
+                'photo': self.pic}
 
 # Define the checkin model
 class Checkin(models.Model):
