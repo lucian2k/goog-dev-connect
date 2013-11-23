@@ -40,7 +40,7 @@ def reports(request):
                     'reports.html',
                     {'location': _get_location(),
                     'checkins': checkins,
-                    'checkins_count': len(checkins)})
+                    'stalking_count': len(stalking)})
 
 def _get_location():
     """Small info about the current location"""
