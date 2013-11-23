@@ -1,6 +1,7 @@
 import hashlib
 import datetime
 
+from django.utils.timezone import utc
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -79,3 +80,9 @@ class Checkin(models.Model):
 
     def stillthere(self):
         return not self.endtime # todo: add time limit when the session is considered done
+
+    def checkin_duration(self):
+        time_since_checkin = datetime.datetime.utcnow().replace(tzinfo=utc) - self.starttime
+
+        return str(time_since_checkin)
+

@@ -23,7 +23,7 @@
       <!-- Begin page content -->
       {% block content %}
         <div class="page-header">
-            <h1>All beacon reports <small>Following {{ checkins_count}} "targets", last beacon sync 10 mins ago</small></h1>
+            <h1>All beacon reports <small>Following {{ stalking_count}} members, last beacon sync 10 mins ago</small></h1>
         </div>
 
         <div class="panel panel-default">
@@ -35,9 +35,9 @@
               <td></td>
               <td>
               {% if checkin.stillthere %}
-              {{ checkin.user.first_name }} is at {{ checkin.place }} <span class="label label-primary">been here for 2 hours, checked in at {{ checkin.starttime }}</span>
+              {{ checkin.user.first_name }} is at {{ checkin.place }} <span class="label label-primary">been here for {{ checkin.checkin_duration }}, checked in at {{ checkin.starttime }}</span>
               {% else %}
-              {{ checkin.user.first_name }} was at {{ checkin.place }} <span class="label label-default">4 hours, checked out at {{ checkin.endtime }}</span>
+              {{ checkin.user.first_name }} was at {{ checkin.place }} <span class="label label-default">{{ checkin.checkin_duration }}, checked out at {{ checkin.endtime }}</span>
               {% endif %}
               </td>
             </tr>
