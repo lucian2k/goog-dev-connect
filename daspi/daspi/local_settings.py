@@ -6,3 +6,5 @@ DATABASES = {
     }
 }
 
+# the place where this raspberry pi is installed
+THIS_PLACE_PK = 1
