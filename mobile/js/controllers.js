@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('controllers')
 .controller('Login', function ($scope, $location, $timeout, Api) {
     $scope.user = {
