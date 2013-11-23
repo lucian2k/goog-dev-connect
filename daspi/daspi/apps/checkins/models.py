@@ -5,10 +5,15 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Extend the user model
+CHECKIN_ONLY =1
+REPORTS_ONLY = 2
+ALL = 3
+USER_TYPE_REPORTS = [REPORTS_ONLY, ALL]
+
 USER_TYPES = (
-    ('1', 'Checkin only'),
-    ('2', 'Reports only'),
-    ('3', 'All')
+    (CHECKIN_ONLY, 'Checkin only'),
+    (REPORTS_ONLY, 'Reports only'),
+    (ALL, 'All')
 )
 class ApplePiUser(models.Model):
     user = models.OneToOneField(User)
@@ -29,6 +34,9 @@ class ApplePiUser(models.Model):
         ut.save()
 
         return token
+
+    def can_report(self):
+        return self.role in USER_TYPE_REPORTS
 
 class UserTokens(models.Model):
     user = models.ForeignKey(User)
