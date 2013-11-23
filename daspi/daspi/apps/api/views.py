@@ -4,10 +4,10 @@ from django.contrib.auth import authenticate, login
 from decorators import json_response
 
 @json_response
-def login(request):
+def dologin(request):
     token = None
 
-    if request.POST.get('user') and request.POST.get('pass'):
+    if request.POST.get('user', None) and request.POST.get('pass', None):
         user = authenticate(username=request.POST.get('user'),
                             password=request.POST.get('pass'))
         if user is not None:

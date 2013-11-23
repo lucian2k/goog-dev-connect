@@ -10,18 +10,19 @@ def home(request):
         return redirect('login')
 
     # detect what options to show here: reporting or checkin
+    if request.user.applepiuser.can_report():
+        return redirect('reports')
 
     return
 
-def login(request):
-
-    if request.POST.get('user') and request.POST.get('pass'):
+def dologin(request):
+    if request.POST.get('user', None) and request.POST.get('pass', None):
         user = authenticate(username=request.POST.get('user'),
                             password=request.POST.get('pass'))
         if user is not None:
-            # do redirect to the proper page
+            # login and redirect
             login(request, user)
-            redirect('home')
+            return redirect('home')
 
     return render(request, 'login.html', {'location': _get_location()})
 
