@@ -107,7 +107,7 @@
   },
   {
     "model": "checkins.checkin",
-    "pk": 1,
+    "pk": 2,
     "fields": {
       "user": 1,
       "place": 2,
