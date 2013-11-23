@@ -84,5 +84,24 @@
       "place_type": 1,
       "place_name": "GooglePlex High School"
     }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "place": 1,
+      "starttime": "2013-11-23T10:52:05.717Z",
+      "endtime": "2013-11-23T18:52:05.717Z"
+    }
+  },
+  {
+    "model": "checkins.checkin",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "place": 2,
+      "starttime": "2013-11-23T19:00:05.717Z"
+    }
   }
 ]
