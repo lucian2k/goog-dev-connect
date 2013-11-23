@@ -4,7 +4,6 @@ import datetime
 from django.utils.timezone import utc
 from django.db import models
 from django.contrib.auth.models import User
-from utils import naturalTimeDifference
 
 # Extend the user model
 CHECKIN_ONLY =1
@@ -84,5 +83,6 @@ class Checkin(models.Model):
 
     def checkin_duration(self):
         time_since_checkin = datetime.datetime.utcnow().replace(tzinfo=utc) - self.starttime
-        return time_since_checkin
+
+        return str(time_since_checkin)
 
