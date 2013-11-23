@@ -1,4 +1,4 @@
-angular.module('apple-pi', ['ionic'])
+angular.module('apple-pi', ['ionic', 'controllers', services])
 .config(function ($routeProvider) {
     $routeProvider
         .when('/', {
@@ -15,6 +15,14 @@ angular.module('apple-pi', ['ionic'])
         .when('/profile', {
             templateUrl: 'views/profile.html',
             controller: 'Profile'
+        })
+        .when('/location', {
+            templateUrl: 'views/location.html',
+            controller: 'Location'
+        })
+        .when('/friend/add', {
+            templateUrl: '/views/add-friend.html',
+            controller: 'AddFriend'
         })
         .otherwise('/');
 })
@@ -39,6 +47,31 @@ angular.module('apple-pi', ['ionic'])
 
     return User;
 })
+// Data source service
+.service('DS', function () {
+    var DS = {
+        location: {
+            name: 'Baneasa Shopping City',
+            pic: 'http://www.petocuri.ro/uploads/pics/ENTERTAINMENT_20ENTRANCE_20BANEASA_20SHOPPING_20CITY.jpg',
+            desc: 'The biggest and fanciest romanian mall',
+            lat: 45.2,
+            lng: 44.52
+        },
+
+        friends: [{
+            fn: 'Leo',
+            ln: 'Messi',
+            active: 1,
+        },
+        {
+            fn: 'Cristi',
+            ln: 'Ronaldo',
+            active: 0
+        }]
+    };
+
+    return DS;
+})
 .controller('Login', function ($scope, $location, $timeout, Api) {
     $scope.user = {
         username: '',
@@ -61,15 +94,17 @@ angular.module('apple-pi', ['ionic'])
         $location.path('/dashboard');
     }
 })
-.controller('Dashboard', function ($scope, $location, User) {
-    $scope.location = {
-        name: 'Baneasa Shopping City'
-    };
-
+.controller('Dashboard', function ($scope, $location, DS, User) {
     $scope.user = User;
+    $scope.location = DS.location;
+    $scope.friends = DS.friends;
 
     $scope.openLeft = function () {
         $scope.sideMenuController.toggleLeft();
+    };
+
+    $scope.openRight = function () {
+        $scope.sideMenuController.toggleRight();
     };
 
     $scope.logOut = function () {
@@ -81,4 +116,7 @@ angular.module('apple-pi', ['ionic'])
         fn: User.fn,
         ln: User.ln
     }
+})
+.controller('Location', function ($scope, DS) {
+    $scope.location = DS.location;
 });

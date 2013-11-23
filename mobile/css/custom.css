@@ -1,3 +1,12 @@
+.draft h5 {
+    color: gray;
+}
+.online {
+    color: green;
+}
+.offline {
+    color: red;
+}
 .error {
     color: red;
 }
