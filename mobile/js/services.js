@@ -27,8 +27,8 @@ angular.module('services')
             name: 'Baneasa Shopping City',
             pic: 'http://www.petocuri.ro/uploads/pics/ENTERTAINMENT_20ENTRANCE_20BANEASA_20SHOPPING_20CITY.jpg',
             desc: 'The biggest and fanciest romanian mall',
-            lat: 45.2,
-            lng: 44.52
+            lat: 44.43,
+            lng: 26.1
         },
 
         friends: [{
