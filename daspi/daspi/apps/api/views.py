@@ -30,8 +30,8 @@ def location(request):
 
 @json_response
 def checkin(request):
-    token = request.GET.get('token', None)
-    # token = request.POST.get('token', None)
+    # token = request.GET.get('token', None) # testing env
+    token = request.POST.get('token', None)
 
     try: token_obj = UserTokens.objects.get(value=token)
     except: token_obj = None
@@ -53,8 +53,8 @@ def checkin(request):
 
 @json_response
 def checkout(request):
-    token = request.GET.get('token', None)
-    # token = request.POST.get('token', None)
+    # token = request.GET.get('token', None) # testing env
+    token = request.POST.get('token', None)
 
     try: token_obj = UserTokens.objects.get(value=token)
     except: token_obj = None
