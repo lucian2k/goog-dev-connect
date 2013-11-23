@@ -2,21 +2,22 @@
   <pane side-menu-content>
     <header class="bar bar-header bar-positive">
       <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon"></i></button>
-      <h1 class="title">{{location.name}}</h1>
+      <h1 class="title"><i class="icon ion-person"></i> {{user.fn}} {{user.ln}}</h1>
       <button class="button button-icon" ng-click="openRight()"><i class="icon icon ion-ios7-people"></i></button>
     </header>
     <div class="content has-header padding">
       <div class="card">
+        <div class="item item-icon-right">
+          You're at {{location.name}} <i class="icon ion-ios7-close-empty"></i>
+        </div>
+        <div class="item item-icon-right">
+          Last check in here 2 days ago <i class="icon ion-ios7-close-empty"></i>
+        </div>
       </div>
       <div class="list card">
-        <a href="#" class="item item-icon-left">
-          <i class="icon ion-location"></i>
-          Your places
-        </a>
-
-        <a href="#/location" class="item item-icon-left">
+        <a href="#/location" class="item item-icon-left positive">
           <i class="icon ion-information"></i>
-          Learn more about {{location.name}}
+          {{location.name}}
         </a>
 
       </div>
@@ -37,6 +38,9 @@
         </a>
         <a href="#/profile" class="item">
           <i class="icon ion-person"></i> &nbsp;&nbsp;Edit profile
+        </a>
+        <a href="#/places" class="item">
+          <i class="icon ion-location"></i> &nbsp;&nbsp;Places
         </a>
         <a ng-click="logOut()" class="item">
           <i class="icon ion-power"></i> &nbsp;&nbsp;Log Out

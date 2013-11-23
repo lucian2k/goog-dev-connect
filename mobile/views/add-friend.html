@@ -7,8 +7,16 @@
 
 <div class="content has-header padding">
     <div class="list card">
-      <div class="item item-input">
-        <input type="text">
+      <div class="padding">
+        <label class="item item-input">
+          <input ng-model="friend.name" type="text" placeholder="Friend name" />
+        </label>
+        <button class="button button-block button-balanced" ng-click="addFriend()"> Add friend </button>
       </div>
+
+      <div class="padding">
+        <span ng-show="showError" class="error"> <i class="icon ion-alert-circled"></i> The friend does not exist.</span>
+      </div>
+
     </div>
 </div>
