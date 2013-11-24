@@ -4,6 +4,7 @@ import datetime
 from django.utils.timezone import utc
 from django.db import models
 from django.contrib.auth.models import User
+from utils import humanizeTimeDiff
 
 # Extend the user model
 CHECKIN_ONLY =1
@@ -82,8 +83,8 @@ class Checkin(models.Model):
         return not self.endtime # todo: add time limit when the session is considered done
 
     def checkin_duration(self):
-        if self.endtime: time_since_checkin = self.endtime - self.starttime
-        else: time_since_checkin = datetime.datetime.utcnow().replace(tzinfo=utc) - self.starttime
+        if self.endtime: time_since_checkin = humanizeTimeDiff(self.endtime - self.starttime)
+        else: time_since_checkin = humanizeTimeDiff(datetime.datetime.utcnow().replace(tzinfo=utc) - self.starttime)
 
         return str(time_since_checkin)
 
