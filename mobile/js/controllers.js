@@ -1,26 +1,35 @@
 'use strict';
 
 angular.module('controllers')
-.controller('Login', function ($scope, $location, $timeout, Api) {
+.controller('Login', function ($scope, $location, $timeout, Api, Cookie) {
     $scope.user = {
         username: '',
         password: ''
     };
 
-    $scope.logIn = function () {
-        Api
-            .post('login', $scope.user)
-            .success(function (data) {
+    var showError = function () {
+        $timeout(function () {
+            $scope.showError = false;
+        }, 5000);
+    };
 
+    $scope.logIn = function () {
+        if (!$scope.user.username || !$scope.user.password) {
+            showError();
+        }
+
+        Api
+            .post('login/', { user: $scope.user.username, pass: $scope.user.password })
+            .success(function (data) {
+                if (data && data.token) {
+                    Cookie.set('token', data.token);
+                    $location.path('/dashboard');
+                }
             })
             .error(function (data) {
                 $scope.showError = true;
-                $timeout(function () {
-                    $scope.showError = false;
-                }, 5000);
+                showError();
             });
-
-        $location.path('/dashboard');
     }
 })
 .controller('Dashboard', function ($scope, $location, DS, User) {
