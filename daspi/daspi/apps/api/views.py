@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from daspi.apps.checkins.models import Place, UserTokens, Checkin
 from decorators import json_response
 from django.conf import settings
+from django.http import HttpResponse
 
 @json_response
 def dologin(request):
@@ -22,7 +23,7 @@ def dologin(request):
             # just create the damn token
             if not token: token = user.applepiuser.generate_token()
 
-    return {'token': token}
+    return HttpResponse('Unauthorized', status=401)
 
 @json_response
 def location(request):
@@ -33,7 +34,7 @@ def checkin(request):
     # token = request.GET.get('token', None) # testing env
     token = request.POST.get('token', None)
 
-    try: token_obj = UserTokens.objects.get(value=token)
+    try: token_obj = UserTokens.objects.get(value=u'%s' % token)
     except: token_obj = None
     if not token_obj: return {'error': 'Invalid token', 'success': False}
 
@@ -64,7 +65,7 @@ def checkout(request):
 
     checked_in = _is_checked_in(token_obj.user, place_obj)
     if not checked_in:
-        return {'error': 'Seems ;that you are not checked in, you must checkin before attempting to checkout', 'success': False}
+        return {'error': 'Seems that you are not checked in, you must checkin before attempting to checkout', 'success': False}
 
     checkin_obj = Checkin.objects.filter(user=token_obj.user,place=place_obj).order_by('-pk')[0]
     checkin_obj.endtime = datetime.datetime.now()
