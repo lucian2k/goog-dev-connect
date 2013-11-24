@@ -35,9 +35,9 @@
               <td></td>
               <td>
               {% if checkin.stillthere %}
-              <p class="text-info"><span class="label label-info">{{ checkin.user.first_name }}</span> is at <em>{{ checkin.place }}</em> <small>been here for <span class="label label-primary">{{ checkin.checkin_duration }}</span> checked in <span class="label label-primary">{{ checkin.starttime|timesince }} ago</span></small></p>
+              <p class="text-info"><span class="glyphicon glyphicon-screenshot"></span> <span class="label label-info">{{ checkin.user.first_name }}</span> is at <em>{{ checkin.place }}</em> <small>been here for <span class="label label-primary">{{ checkin.checkin_duration }}</span> checked in <span class="label label-primary">{{ checkin.starttime|timesince }} ago</span></small></p>
               {% else %}
-              <p class="text-muted">{{ checkin.user.first_name }} was at <em>{{ checkin.place }}</em> <small>spent <span class="label label-default">{{ checkin.checkin_duration }}</span> checked out <span class="label label-default">{{ checkin.endtime|timesince }} ago</span></small></p>
+              <p class="text-muted"><span class="glyphicon glyphicon-home"></span> {{ checkin.user.first_name }} was at <em>{{ checkin.place }}</em> <small>spent <span class="label label-default">{{ checkin.checkin_duration }}</span> checked out <span class="label label-default">{{ checkin.endtime|timesince }} ago</span></small></p>
               {% endif %}
               </td>
             </tr>
