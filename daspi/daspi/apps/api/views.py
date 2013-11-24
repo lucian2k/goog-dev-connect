@@ -3,12 +3,14 @@ import json
 
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
 
 from daspi.apps.checkins.models import Place, UserTokens, Checkin
 from decorators import json_response
 from django.conf import settings
 from django.http import HttpResponse
 
+@csrf_exempt
 @json_response
 def dologin(request):
     token = None
@@ -33,6 +35,7 @@ def dologin(request):
 def location(request):
     return _get_location().to_json()
 
+@csrf_exempt
 @json_response
 def checkin(request):
     # token = request.GET.get('token', None) # testing env
@@ -56,6 +59,7 @@ def checkin(request):
 
     return {'success': True}
 
+@csrf_exempt
 @json_response
 def checkout(request):
     # token = request.GET.get('token', None) # testing env
