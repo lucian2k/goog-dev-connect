@@ -23,7 +23,9 @@ def dologin(request):
             # just create the damn token
             if not token: token = user.applepiuser.generate_token()
 
-    return HttpResponse('Unauthorized', status=401)
+    if not token: return HttpResponse('Unauthorized', status=401)
+
+    return {'token': token}
 
 @json_response
 def location(request):
